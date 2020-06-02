@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototype & Inheritance</title>
+</head>
+<body>
+	<h1>Understanding Prototype and Inheritance in Javascript</h1>
+	<script>
+		//What is prototype?
+		/*
+		when I say prototype in js, then I am referring to [[prototype]] or __proto__ or getPrototypeOf(obj).
+
+		From now onwards I'll refer prototype as __proto__.
+
+		So __proto__ is an object inside javascript object. 
+		*/
+
+		let obj =  {}; // is same as let obj = new Object();
+		// Uncomment to see results in the console.
+		//console.log(obj)
+
+
+		/* 
+		Ouput will be 
+		{
+			__proto__: Object
+		}
+		What this means is by default javascript engine, initializes __proto__ named property to newly created object.
+
+		value of the __proto__ will always be equal to prototype property of the parent constructor.
+		*/
+		// What??!! Hey!! WAIT a second....!!, Now what the hell is `prototype property of the parent constructor function or class`????
+
+		/*
+		`Prototype` property in javascript has nothing todo with __proto__ of an object. For some time just rename 
+		prototype property = constructor property. We will come to this later. 
+		*/
+
+		// lets understand how __proto__ works.
+
+		let person = {
+			name: 'Rahul',
+			age: 24,
+		}
+		console.log(person)
+
+		let programmer = {
+			job: 'Engineer',
+		}
+		console.log(programmer)
+
+		/* as we can see __proto__ having its value equal to Object. This means as I have already mentioned in line 30, value is always by default equal to prototype property of the parent class.*/
+
+		// To understand the use of __proto__
+		console.log(programmer.name); // undefined
+		
+		// As name is not defined for programmer but it is defined for person object.
+
+		/* I will change the value of __proto__ of programmer object to person object */
+
+		
+		//** Even __proto__ is also an object by nature.
+
+		programmer.__proto__ = person;
+		console.log(programmer.name);
+
+
+
+	</script>
+</body>
+</html>
